@@ -4,7 +4,7 @@ node {
     }
 
     stage('Biuld') {
-        echo 'Buildd;
+        echo 'Buildd'
     }
 
     stage('Test') {
