@@ -3,6 +3,10 @@ node {
         echo 'Build'
     }
 
+    stage('Biuld') {
+        echo 'Buildd;
+    }
+
     stage('Test') {
         echo 'Test'
     }
