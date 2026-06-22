@@ -1,45 +1,199 @@
-#Jenkins CI/CD Pipeline Demo
-Project Overview
+# 🚀 Jenkins CI/CD Pipeline Demo
 
-This project demonstrates the implementation of a Jenkins CI/CD Pipeline integrated with GitHub.
+![Jenkins](https://img.shields.io/badge/Jenkins-CI%2FCD-red)
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Maven](https://img.shields.io/badge/Maven-Build-blue)
+![Docker](https://img.shields.io/badge/Docker-Containerization-2496ED)
+![GitHub](https://img.shields.io/badge/GitHub-Version%20Control-black)
 
-The pipeline automates:
+## 📌 Project Overview
 
-Source code checkout from GitHub
-Build process execution
-Test execution
-Deployment stage simulation
-Continuous Integration workflow
+This project demonstrates a complete **CI/CD pipeline using Jenkins, GitHub, Maven, Java, and Docker**.
 
- Build, Test, and Compile Workflow
-1️⃣ Build
-We use Maven to compile the Java source code:
+Whenever code is pushed to GitHub, Jenkins automatically:
 
+✅ Fetches the latest source code
+✅ Compiles the application
+✅ Executes automated tests
+✅ Builds the application artifact (JAR)
+✅ Creates a Docker image
+✅ Runs the application inside a Docker container
+
+---
+
+## 🏗️ CI/CD Workflow
+
+```text
+Developer
+    │
+    ▼
+GitHub Repository
+    │
+    ▼
+Jenkins Pipeline
+    │
+ ┌──┴─────────────┐
+ ▼                ▼
+Build          Test
+ │                │
+ └──────┬─────────┘
+        ▼
+Package JAR
+        │
+        ▼
+Docker Build
+        │
+        ▼
+Container Deployment
+```
+
+---
+
+## ⚙️ Technologies Used
+
+| Technology   | Purpose                 |
+| ------------ | ----------------------- |
+| Java 21      | Application Development |
+| Maven        | Build Automation        |
+| Jenkins      | CI/CD Automation        |
+| Docker       | Containerization        |
+| Git & GitHub | Version Control         |
+| JUnit        | Unit Testing            |
+
+---
+
+## 📂 Project Structure
+
+```text
+.
+├── Pipeline
+│   ├── Declarative
+│   └── scripted
+├── Screenshots
+│   ├── Screenshot1.png
+│   ├── Screenshot2.png
+│   ├── Screenshot3.png
+│   └── images
+├── src
+│   └── test
+│       └── java
+│           └── CalculatorTest.java
+├── README.md
+└── pom.xml
+
+---
+
+## 🔨 Build Stage
+
+The application is built using Maven.
+
+```bash
 mvn clean package
-mvn clean removes any previous build artifacts.
-mvn package compiles the code and packages it into a JAR file.
-Output JAR: target/java-jenkins-docker-1.0-SNAPSHOT.jar
-2️⃣ Test
-The project includes a basic JUnit test:
+```
 
+### What Happens?
+
+* Removes old build files
+* Compiles Java source code
+* Runs tests
+* Generates executable JAR
+
+### Generated Artifact
+
+```text
+target/java-jenkins-docker-1.0-SNAPSHOT.jar
+```
+
+---
+
+## 🧪 Test Stage
+
+Run automated unit tests:
+
+```bash
 mvn test
-This runs all tests inside the src/test/java directory.
+```
 
-3️⃣ Compile
-Maven automatically compiles the Java source files during the package phase:
+The pipeline validates application quality before deployment.
 
+---
+
+## ⚡ Compile Stage
+
+Compile Java source code only:
+
+```bash
 mvn compile
-This ensures all Java files are translated into .class files in the target/classes directory.
+```
 
-🚀 Running Locally
-After building the project, run the application locally:
+Compiled classes are generated inside:
 
+```text
+target/classes
+```
+
+---
+
+## ▶️ Run Application Locally
+
+Execute the generated JAR:
+
+```bash
 java -jar target/java-jenkins-docker-1.0-SNAPSHOT.jar
-Expected Output:
+```
 
+### Output
+
+```text
 Hello from Java Application for Jenkins CI/CD!
-🐳 Running with Docker
-1️⃣ Build Docker image
+```
+
+---
+
+## 🐳 Docker Integration
+
+### Build Docker Image
+
+```bash
 docker build -t java-jenkins-docker:latest .
-2️⃣ Run Docker container
+```
+
+### Run Docker Container
+
+```bash
 docker run --rm java-jenkins-docker:latest
+```
+
+### Expected Output
+
+```text
+Hello from Java Application for Jenkins CI/CD!
+```
+
+---
+
+## 🔄 Jenkins Pipeline Stages
+
+| Stage        | Description           |
+| ------------ | --------------------- |
+| Checkout     | Pull code from GitHub |
+| Build        | Compile source code   |
+| Test         | Execute JUnit tests   |
+| Package      | Create JAR artifact   |
+| Docker Build | Build Docker image    |
+| Deploy       | Run Docker container  |
+
+---
+
+
+## 🎯 Key Learning Outcomes
+
+* Jenkins Pipeline Creation
+* GitHub Integration
+* Maven Build Automation
+* Docker Containerization
+* Continuous Integration (CI)
+* Continuous Delivery (CD)
+* Automated Testing
+
+---
